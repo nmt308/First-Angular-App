@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #d5edee;
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  fa-icon {
+    cursor: pointer;
+    color: #6b6a6a;
+  }
+}
+p {
+  margin-bottom: 0;
+  font-weight: 400;
+}
+.todo-edit {
+  border: unset;
+  border-bottom: 2px solid #0d75ec;
+  &:focus {
+    outline: none;
+  }
+  ~ fa-icon {
+    margin-left: 12px;
+  }
+}

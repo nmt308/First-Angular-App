@@ -1,0 +1,31 @@
+<h3>{{ title }}</h3>
+<app-search (valueSearch)="searchTodo($event)"></app-search>
+<div class="list-todo">
+  <div>
+    <p style="font-weight: 500">
+      {{
+        listTodo.length > 0
+          ? "All tasks "
+          : "Congratulation! You have nothing to do"
+      }}
+    </p>
+    <p
+      class="list-clear"
+      *ngIf="searchResult.length > 0"
+      (click)="clearSearchTodo()"
+    >
+      Clear search
+    </p>
+  </div>
+  <app-todo-item
+    *ngFor="let item of searchResult.length > 0 ? searchResult : listTodo"
+    [name]="item.name"
+    [id]="item.id"
+    (todoRemove)="removeTodo($event)"
+    (todoSubmit)="editTodo($event)"
+  ></app-todo-item>
+</div>
+<div style="margin-top: auto">
+  <app-input (todoAdd)="addTodo($event)"></app-input>
+</div>
+<app-toast [messageToast]="message"></app-toast>

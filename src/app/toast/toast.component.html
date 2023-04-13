@@ -1,0 +1,6 @@
+<p *ngIf="messageToast !== ''">{{ messageToast }}</p>
+<fa-icon
+  *ngIf="messageToast !== ''"
+  [icon]="closeIcon"
+  (click)="handleHide()"
+></fa-icon>

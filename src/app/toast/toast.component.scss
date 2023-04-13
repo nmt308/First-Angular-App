@@ -1,0 +1,20 @@
+:host {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background-color: #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  fa-icon {
+    padding: 0 16px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+}
+p {
+  margin: 0;
+  padding: 16px;
+  font-size: 16px;
+}

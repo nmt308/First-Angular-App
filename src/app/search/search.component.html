@@ -1,0 +1,9 @@
+<input
+  type="text"
+  placeholder="What are you looking for .."
+  [(ngModel)]="value"
+  (ngModelChange)="handleInputChange($event)"
+/>
+<div id="push" (click)="valueSearch.emit(value)">
+  <fa-icon [icon]="searchIcon"></fa-icon>
+</div>

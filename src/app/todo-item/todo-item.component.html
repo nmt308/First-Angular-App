@@ -1,0 +1,17 @@
+<p *ngIf="!onEdit">{{ name }}</p>
+<div *ngIf="onEdit">
+  <input
+    [(ngModel)]="name"
+    (ngModelChange)="handleChange($event)"
+    class="todo-edit"
+  />
+  <fa-icon [icon]="checkIcon" (click)="handleSave()"></fa-icon>
+</div>
+<div class="d-flex ms-auto">
+  <div (click)="todoRemove.emit(id)" title="Delete task">
+    <fa-icon [icon]="removeIcon"></fa-icon>
+  </div>
+  <div style="margin-left: 18px">
+    <fa-icon [icon]="editIcon" (click)="onEdit = !onEdit"></fa-icon>
+  </div>
+</div>
