@@ -4,6 +4,6 @@
   [(ngModel)]="value"
   (ngModelChange)="handleInputChange($event)"
 />
-<div id="push" (click)="valueSearch.emit(value)">
+<div id="push" (click)="handleSearch()">
   <fa-icon [icon]="searchIcon"></fa-icon>
 </div>

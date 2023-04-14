@@ -5,18 +5,18 @@ export interface ITodo {
 export const listTodo: ITodo[] = [
   {
     id: 0,
-    name: 'React',
+    name: 'Overview of Angular',
   },
   {
     id: 1,
-    name: 'Angular',
+    name: 'Setting up environment',
   },
   {
     id: 2,
-    name: 'Vue',
+    name: 'Create new project',
   },
   {
     id: 3,
-    name: 'PHP',
+    name: 'Building basic Angular application',
   },
 ];

@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
+  selector: 'app-add',
+  templateUrl: './add.component.html',
+  styleUrls: ['./add.component.scss'],
 })
-export class InputComponent {
+export class AddComponent {
   name = '';
+
   handleInputChange(e: any) {}
   @Output() todoAdd = new EventEmitter<string>();
   onAdd() {

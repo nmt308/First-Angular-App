@@ -1,5 +1,5 @@
 <h3>{{ title }}</h3>
-<app-search (valueSearch)="searchTodo($event)"></app-search>
+<app-search (valueSearch)="searchTodo($event)" [isClear]="isClear"></app-search>
 <div class="list-todo">
   <div>
     <p style="font-weight: 500">
@@ -26,6 +26,6 @@
   ></app-todo-item>
 </div>
 <div style="margin-top: auto">
-  <app-input (todoAdd)="addTodo($event)"></app-input>
+  <app-add (todoAdd)="addTodo($event)"></app-add>
 </div>
 <app-toast [messageToast]="message"></app-toast>
