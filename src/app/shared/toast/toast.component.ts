@@ -1,5 +1,6 @@
-import { Component, Input, SimpleChange } from '@angular/core';
+import { Component } from '@angular/core';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-toast',
@@ -8,8 +9,5 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 })
 export class ToastComponent {
   closeIcon = faXmark;
-  @Input() messageToast = '';
-  handleHide() {
-    this.messageToast = '';
-  }
+  constructor(public toast: ToastService) {}
 }

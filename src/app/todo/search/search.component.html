@@ -1,0 +1,21 @@
+<input
+  type="text"
+  placeholder="What are you looking for .."
+  [value]="value"
+  (input)="onChangeInput($event)"
+/>
+<!-- <input
+  type="text"
+  placeholder="What are you looking for .."
+  [(ngModel)]="value"
+/>
+<input
+  type="text"
+  placeholder="What are you looking for .."
+  [ngModel]="value"
+  (ngModelChange)="value = $event"
+/> -->
+
+<div id="push" (click)="handleSearch()">
+  <fa-icon [icon]="searchIcon"></fa-icon>
+</div>

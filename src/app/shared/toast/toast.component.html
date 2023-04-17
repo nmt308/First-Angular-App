@@ -1,0 +1,6 @@
+<p *ngIf="toast.isShow">{{ toast.message }}</p>
+<fa-icon
+  *ngIf="toast.isShow"
+  [icon]="closeIcon"
+  (click)="toast.toggleShow()"
+></fa-icon>
