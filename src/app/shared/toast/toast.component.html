@@ -1,6 +1,5 @@
-<p *ngIf="toast.isShow">{{ toast.message }}</p>
-<fa-icon
-  *ngIf="toast.isShow"
-  [icon]="closeIcon"
-  (click)="toast.toggleShow()"
-></fa-icon>
+<!-- ng-container giúp không render ra DOM 1 div thừa -->
+<ng-container *ngIf="toast.isShow">
+  <p>{{ toast.message }}</p>
+  <fa-icon [icon]="closeIcon" (click)="toast.toggleShow()"></fa-icon>
+</ng-container>

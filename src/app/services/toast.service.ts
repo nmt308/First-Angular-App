@@ -13,4 +13,7 @@ export class ToastService {
   toggleShow() {
     this.isShow = !this.isShow;
   }
+  logToast() {
+    alert('This is toast service');
+  }
 }

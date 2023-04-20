@@ -1,0 +1,14 @@
+<form [formGroup]="form">
+  <h3>{{ title }}</h3>
+  <div>
+    <p>Email</p>
+    <input placeholder="Email" formControlName="email" />
+    <p *ngIf="form.controls.email.errors"></p>
+  </div>
+  <div>
+    <p>Password</p>
+    <input placeholder="Password" formControlName="password" />
+  </div>
+
+  <button>Login now</button>
+</form>

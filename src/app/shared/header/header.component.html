@@ -11,11 +11,42 @@
 
   <ul class="nav nav-pills">
     <li class="nav-item">
-      <a href="#" class="nav-link active" aria-current="page">Home</a>
+      <a
+        class="nav-link"
+        routerLink="/home"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Home</a
+      >
     </li>
-    <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        routerLink="/about"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        class="nav-link"
+        >About us</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        routerLink="/feature"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        class="nav-link"
+        >Feature</a
+      >
+    </li>
     <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        routerLink="/login"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Login</a
+      >
+    </li>
   </ul>
 </header>

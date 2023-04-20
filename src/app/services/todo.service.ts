@@ -6,6 +6,8 @@ import { ToastService } from './toast.service';
   providedIn: 'root',
 })
 export class TodoService {
+  onAdd = false;
+
   public listTodo: ITodo[] = [
     {
       id: 0,
@@ -28,6 +30,10 @@ export class TodoService {
   public searchResult: ITodo[] = [];
 
   constructor(public toast: ToastService) {}
+
+  setOnAdd() {
+    this.onAdd = !this.onAdd;
+  }
 
   getTodoList() {
     return this.listTodo;
@@ -56,7 +62,6 @@ export class TodoService {
 
   searchTodo(value: string) {
     let result = this.listTodo.filter((todo) => todo.name.includes(value));
-    console.log(result);
     if (result.length == 0) {
       this.toast.setMessage('No task was founded !');
       this.toast.toggleShow();

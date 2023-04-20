@@ -11,6 +11,7 @@ import {
   AfterViewChecked,
   AfterContentInit,
   AfterContentChecked,
+  SimpleChanges,
 } from '@angular/core';
 import { faTrash, faPen, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { TodoService } from 'src/app/services/todo.service';
@@ -52,8 +53,8 @@ export class TodoItemComponent
     console.log('init', this.name);
   }
 
-  ngOnChanges() {
-    console.log('on change');
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('on change', changes);
   }
 
   ngDoCheck(): void {

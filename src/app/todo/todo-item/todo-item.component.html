@@ -1,4 +1,4 @@
-<p *ngIf="!onEdit">{{ name }}</p>
+<a [routerLink]="['/detail', id]" *ngIf="!onEdit">{{ name }}</a>
 <div *ngIf="onEdit">
   <input [(ngModel)]="name" class="todo-edit" />
   <fa-icon [icon]="checkIcon" (click)="handleEdit()"></fa-icon>

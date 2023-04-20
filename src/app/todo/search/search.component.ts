@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { TodoService } from 'src/app/services/todo.service';
 
@@ -7,11 +7,13 @@ import { TodoService } from 'src/app/services/todo.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent {
+export class SearchComponent implements OnChanges {
   searchIcon = faSearch;
   value = '';
 
   constructor(public todo: TodoService) {}
+
+  ngOnChanges(changes: SimpleChanges): void {}
 
   ngDoCheck(): void {
     console.log('do check in Search');

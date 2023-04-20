@@ -1,0 +1,33 @@
+<form [formGroup]="form" *ngIf="todo.onAdd" [ngClass]="{ testing: true }">
+  <h3>{{ title }}</h3>
+  <div>
+    <p>Name task</p>
+    <!-- <input type="text" mask="(000) 000-000" /> -->
+    <input type="text" formControlName="name" />
+    <p
+      *ngIf="
+      form.controls.name.errors?.['required'] 
+      && form.controls.name.touched "
+    >
+      This field must be filled
+    </p>
+  </div>
+  <div>
+    <p>Detail</p>
+    <input type="text" formControlName="detail" />
+  </div>
+  <div>
+    <p>Status</p>
+    <input formControlName="status" type="radio" value="Open" /> Open
+    <input
+      formControlName="status"
+      type="radio"
+      value="In progress"
+    />Inprogress
+    <input formControlName="status" type="radio" value="Hold" />Hold
+  </div>
+
+  <div style="margin-top: auto">
+    <button (click)="handleAdd()" class="primary-button">Save</button>
+  </div>
+</form>
