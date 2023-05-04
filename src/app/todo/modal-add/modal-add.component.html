@@ -1,33 +1,72 @@
-<form [formGroup]="form" *ngIf="todo.onAdd" [ngClass]="{ testing: true }">
+<form [formGroup]="form" *ngIf="todo.onAdd" (ngSubmit)="(handleAdd)">
   <h3>{{ title }}</h3>
-  <div>
+  <div style="margin-bottom: 12px">
     <p>Name task</p>
     <!-- <input type="text" mask="(000) 000-000" /> -->
     <input type="text" formControlName="name" />
     <p
       *ngIf="
       form.controls.name.errors?.['required'] 
-      && form.controls.name.touched "
+      && form.controls.name.touched && form.controls.name.dirty "
+      class="text-danger mt-2"
     >
       This field must be filled
     </p>
   </div>
-  <div>
+  <div style="margin-bottom: 12px">
     <p>Detail</p>
     <input type="text" formControlName="detail" />
+    <p
+      *ngIf="
+      form.controls.detail.errors?.['minlength'] 
+      && form.controls.detail.touched && form.controls.detail.dirty "
+      class="text-danger mt-2"
+    >
+      Required length is
+      {{form.controls.detail.errors?.['minlength'].requiredLength}} but current
+      length is {{form.controls.detail.errors?.['minlength'].actualLength}}
+    </p>
   </div>
-  <div>
+  <div style="margin-bottom: 12px">
     <p>Status</p>
-    <input formControlName="status" type="radio" value="Open" /> Open
+    <input formControlName="status" type="radio" value="Open" /><span
+      style="margin-left: 8px"
+      >Open</span
+    >
+
     <input
+      style="margin-left: 8px"
       formControlName="status"
       type="radio"
       value="In progress"
-    />Inprogress
-    <input formControlName="status" type="radio" value="Hold" />Hold
+    /><span style="margin-left: 8px">Inprogress</span>
+
+    <input
+      style="margin-left: 8px"
+      formControlName="status"
+      type="radio"
+      value="Hold"
+    /><span style="margin-left: 8px">Hold</span>
   </div>
 
+  <div formArrayName="options">
+    <p style="margin-bottom: 0">Options</p>
+    <div class="add-option" type="button" (click)="addOption()">
+      Add another option
+    </div>
+
+    <div *ngFor="let option of options.controls; let i = index">
+      <label>Option {{ i + 1 }}:</label>
+      <input type="text" [formControlName]="i" />
+    </div>
+  </div>
   <div style="margin-top: auto">
-    <button (click)="handleAdd()" class="primary-button">Save</button>
+    <button
+      (click)="handleAdd()"
+      [disabled]="form.invalid"
+      class="primary-button"
+    >
+      Save
+    </button>
   </div>
 </form>

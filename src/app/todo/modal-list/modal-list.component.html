@@ -1,4 +1,4 @@
-<h3>{{ title }}</h3>
+<h3 [class.title]="true">{{ title }}</h3>
 <app-search #searchRef></app-search>
 <div class="list-todo">
   <div>
@@ -9,6 +9,7 @@
           : "Congratulation! You have nothing to do"
       }}
     </p>
+    <p class="list-clear" (click)="getText()">Get text file</p>
     <p
       class="list-clear"
       *ngIf="searchResult.length > 0"
@@ -21,6 +22,8 @@
     *ngFor="let item of searchResult.length > 0 ? searchResult : listTodo"
     [name]="item.name"
     [id]="item.id"
+    [detail]="item.detail"
+    [status]="item.status"
   ></app-todo-item>
 </div>
 <div style="margin-top: auto">

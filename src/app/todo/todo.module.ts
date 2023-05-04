@@ -10,6 +10,8 @@ import { provideNgxMask, NgxMaskDirective } from 'ngx-mask';
 import { ModalContainerComponent } from './modal-container/modal-container.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     ModalListComponent,
@@ -22,6 +24,7 @@ import { AppRoutingModule } from '../app-routing.module';
   providers: [provideNgxMask()],
   imports: [
     CommonModule,
+    HttpClientModule,
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,

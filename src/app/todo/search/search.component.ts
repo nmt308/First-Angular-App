@@ -1,5 +1,13 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { ITodo } from 'src/app/interfaces/ITodo';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -7,21 +15,11 @@ import { TodoService } from 'src/app/services/todo.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnChanges {
+export class SearchComponent {
   searchIcon = faSearch;
   value = '';
 
   constructor(public todo: TodoService) {}
-
-  ngOnChanges(changes: SimpleChanges): void {}
-
-  ngDoCheck(): void {
-    console.log('do check in Search');
-  }
-
-  ngAfterViewChecked(): void {
-    console.log('view checked in Search');
-  }
 
   onChangeInput(e: Event) {
     this.value = (e.target as HTMLInputElement).value;
@@ -31,7 +29,9 @@ export class SearchComponent implements OnChanges {
     if (this.value.trim() === '') {
       return;
     }
-    this.todo.searchTodo(this.value);
+    this.todo.searchTodo(this.value).subscribe((result) => {
+      console.log(result);
+    });
   }
 
   resetInput() {

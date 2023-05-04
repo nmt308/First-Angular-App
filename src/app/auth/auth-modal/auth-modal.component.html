@@ -1,14 +1,52 @@
-<form [formGroup]="form">
-  <h3>{{ title }}</h3>
-  <div>
+<form #loginForm="ngForm">
+  <h3 style="text-align: center; margin-bottom: 8px">LOGIN</h3>
+  <div style="margin-bottom: 12px">
     <p>Email</p>
-    <input placeholder="Email" formControlName="email" />
-    <p *ngIf="form.controls.email.errors"></p>
+    <input
+      #email="ngModel"
+      type="text"
+      name="email"
+      [(ngModel)]="account.email"
+      required
+      pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+      placeholder="Enter your email"
+    />
+    <p
+      *ngIf="email.errors && email.touched && email.dirty"
+      class="text-danger mt-2"
+    >
+      Email invalid
+    </p>
   </div>
-  <div>
+  <div style="margin-bottom: 12px">
     <p>Password</p>
-    <input placeholder="Password" formControlName="password" />
+    <input
+      #password="ngModel"
+      type="text"
+      name="password"
+      [(ngModel)]="account.password"
+      required
+      minlength="6"
+      placeholder="Enter your password"
+    />
+    <p
+      *ngIf="password.errors && password.touched && password.dirty"
+      class="text-danger mt-2"
+      style="margin-bottom: 0"
+    >
+      Required password length is
+      {{ password?.errors?.['minlength'].requiredLength}} but current length is
+      {{ password?.errors?.['minlength'].actualLength}}
+    </p>
   </div>
 
-  <button>Login now</button>
+  <div style="margin-top: auto">
+    <button
+      [disabled]="loginForm.invalid"
+      class="primary-button"
+      routerLink="/home"
+    >
+      Login now
+    </button>
+  </div>
 </form>

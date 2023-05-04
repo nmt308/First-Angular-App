@@ -9,20 +9,38 @@ import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
 import { Page404Component } from './page404/page404.component';
 import { NewToastService } from './services/new-toast.service';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileChildComponent } from './profile-child/profile-child.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthInterceptor } from './interceptor/AuthInterceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { httpInterceptors } from './interceptor/interceptor';
+import { AboutModule } from './about/about.module';
+import { FeatureModule } from './feature/feature.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent, Page404Component],
+  declarations: [
+    AppComponent,
+    Page404Component,
+    ProfileComponent,
+    ProfileChildComponent,
+    DashboardComponent,
+  ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
     TodoModule,
     AuthModule,
     AppRoutingModule,
+    AboutModule,
+    FeatureModule,
   ],
   providers: [
-    ToastService,
     { provide: ToastService, useClass: NewToastService },
     TodoService,
+    httpInterceptors,
   ],
   bootstrap: [AppComponent],
 })

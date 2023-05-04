@@ -1,0 +1,38 @@
+<form>
+  <h3></h3>
+  <div style="margin-bottom: 12px">
+    <p>Full name</p>
+    <!-- <input type="text" mask="(000) 000-000" /> -->
+    <input type="text" formControlName="name" />
+    <!-- <p class="text-danger mt-2">This field must be filled</p> -->
+  </div>
+  <div style="margin-bottom: 12px">
+    <p>Email</p>
+    <input type="text" formControlName="detail" />
+    <!-- <p class="text-danger mt-2">
+      Required length is
+        {{form.controls.detail.errors?.['minlength'].requiredLength}} but current
+        length is {{form.controls.detail.errors?.['minlength'].actualLength}}
+    </p> -->
+  </div>
+  <div style="margin-bottom: 12px">
+    <p>Address</p>
+    <input type="text" formControlName="name" />
+    <!-- <p class="text-danger mt-2">This field must be filled</p> -->
+  </div>
+  <div style="margin-bottom: 12px">
+    <p>Age</p>
+    <input type="text" formControlName="name" />
+    <!-- <p class="text-danger mt-2">This field must be filled</p> -->
+  </div>
+  <div style="margin-bottom: 12px">
+    <p>Phone</p>
+    <input type="text" formControlName="name" />
+    <!-- <p class="text-danger mt-2">This field must be filled</p> -->
+  </div>
+
+  <div style="margin-top: auto">
+    <button class="primary-button">Save</button>
+  </div>
+</form>
+<router-outlet></router-outlet>

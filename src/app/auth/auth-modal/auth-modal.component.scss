@@ -1,16 +1,26 @@
 :host {
+  background-color: #2362cc;
+  height: calc(100vh - 57px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form {
   width: 450px;
   border-radius: 16px;
   background-color: #fff;
   padding: 18px 16px;
-  height: 80%;
+
   display: flex;
   flex-direction: column;
+  p {
+    margin-bottom: 12px;
+  }
 }
 
-:host input {
+form input[type="text"] {
+  border: 2px solid #ccc;
   outline: none;
-  border: none;
   width: 100%;
   height: 45px;
   font-family: ‘Poppins’, sans-serif;
@@ -21,7 +31,22 @@
   position: relative;
   border-radius: 5px;
 }
-:host input:focus {
+form input[type="text"]:focus {
   outline: none;
   border-color: #0d75ec;
+}
+button {
+  margin-top: 16px;
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+.add-option {
+  background: #0d75ec;
+  width: 160px;
+  padding: 8px;
+  color: #fff;
+  border-radius: 6px;
+  margin: 12px 0;
 }

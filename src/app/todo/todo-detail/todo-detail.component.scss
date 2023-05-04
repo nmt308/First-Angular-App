@@ -1,0 +1,22 @@
+:host {
+  background-color: #2362cc;
+  height: calc(100vh - 57px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div {
+  h4 {
+    margin-bottom: 0;
+  }
+  width: 450px;
+  border-radius: 16px;
+  background-color: #fff;
+  padding: 18px 16px;
+
+  display: flex;
+  flex-direction: column;
+  p {
+    margin-bottom: 12px;
+  }
+}

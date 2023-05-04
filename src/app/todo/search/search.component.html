@@ -4,16 +4,18 @@
   [value]="value"
   (input)="onChangeInput($event)"
 />
-<!-- <input
-  type="text"
-  placeholder="What are you looking for .."
-  [(ngModel)]="value"
-/>
+<!-- 
 <input
   type="text"
   placeholder="What are you looking for .."
   [ngModel]="value"
   (ngModelChange)="value = $event"
+/>
+
+<input
+  type="text"
+  placeholder="What are you looking for .."
+  [(ngModel)]="value"
 /> -->
 
 <div id="push" (click)="handleSearch()">
