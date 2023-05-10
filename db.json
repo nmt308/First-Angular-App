@@ -1,32 +1,26 @@
 {
   "listTodo": [
     {
-      "id": 0,
-      "name": "Overview of Angular",
-      "status": "Open",
-      "detail": "Learn about history, structure and future"
-    },
-    {
-      "id": 1,
-      "name": "Getting Started with Angular",
-      "detail": "Install Angular and create your first app",
-      "status": "Open"
-    },
-    {
-      "id": 2,
-      "name": "Components in Angular 2",
-      "status": "In Progress",
-      "detail": "Understand the building blocks of Angular apps"
-    },
-    {
       "id": 3,
-      "name": "Services in Angular",
+      "name": "Observable and RxJS",
       "status": "Closed",
       "detail": "Create reusable code and handle data"
     },
     {
-      "id": 1683086161414,
-      "name": "Learn Angular",
+      "id": 1683517759769,
+      "name": "Directives in Angular",
+      "detail": "Learn Angular",
+      "status": "In progress"
+    },
+    {
+      "id": 1683519642188,
+      "name": "Animations in Angular",
+      "detail": "Learn Angular",
+      "status": "In progress"
+    },
+    {
+      "id": 1683519746597,
+      "name": "Testing in Angular",
       "detail": "Learn Angular",
       "status": "In progress"
     }

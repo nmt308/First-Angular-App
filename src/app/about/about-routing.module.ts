@@ -3,7 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about.component';
 
 const routes: Routes = [
-  { path: '', component: AboutComponent, title: 'About page' },
+  {
+    path: '',
+    component: AboutComponent,
+    title: 'About page',
+    data: { animation: 'AboutPage' },
+  },
   { path: 'detail', component: AboutComponent },
 ];
 

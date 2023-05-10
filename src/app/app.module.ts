@@ -18,6 +18,8 @@ import { httpInterceptors } from './interceptor/interceptor';
 import { AboutModule } from './about/about.module';
 import { FeatureModule } from './feature/feature.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TransformTextDirective } from './customDirectives/transform-text.directive';
+import { HideDirective } from './customDirectives/hide.directive';
 
 @NgModule({
   declarations: [

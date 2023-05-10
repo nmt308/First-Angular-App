@@ -20,13 +20,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TodoService } from './services/todo.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'prefix', title: 'Home page' },
+  { path: '', redirectTo: '/home', pathMatch: 'full', title: 'Home page' },
   {
     path: 'login',
     component: AuthModalComponent,
     title: 'Login page',
+    data: { animation: 'LoginPage' },
   },
-
   {
     path: 'detail/:id',
     component: TodoDetailComponent,
@@ -43,6 +43,7 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     title: 'Profile page',
+    data: { animation: 'ProfilePage' },
     canDeactivate: [
       (
         component: ProfileComponent,
@@ -74,6 +75,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    data: { animation: 'DashboardPage' },
     title: 'Dashboard page',
     canMatch: [
       (route: Route, segments: UrlSegment[]) => {
@@ -91,16 +93,18 @@ const routes: Routes = [
     path: 'home',
     component: ModalContainerComponent,
     title: 'Home page',
-    resolve: {
-      listTodo: () => {
-        const todoService = inject(TodoService);
-        return todoService.getTodoList();
-      },
-    },
+    data: { animation: 'HomePage' },
+    // resolve: {
+    //   listTodo: () => {
+    //     const todoService = inject(TodoService);
+    //     return todoService.getTodoList();
+    //   },
+    // },
   },
 
   {
     path: 'about',
+    data: { animation: 'AboutPage' },
     loadChildren: () =>
       import('./about/about.module').then((m) => m.AboutModule),
   },

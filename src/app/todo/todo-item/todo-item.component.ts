@@ -5,6 +5,9 @@ import {
   style,
   transition,
   animate,
+  query,
+  stagger,
+  group,
 } from '@angular/animations';
 import { faTrash, faPen, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { TodoService } from 'src/app/services/todo.service';
@@ -12,43 +15,7 @@ import { TodoService } from 'src/app/services/todo.service';
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.scss'],
-  animations: [
-    // trigger('zoom', [
-    //   state(
-    //     'open',
-    //     style({
-    //       backgroundColor: 'red',
-    //     })
-    //   ),
-    //   state(
-    //     'close',
-    //     style({
-    //       backgroundColor: 'yellow',
-    //     })
-    //   ),
-    //   transition('open => *', [animate('1s', style({ opacity: '*' }))]), //từ open chuyến sang bất cứ state nào cũng match
-    //   transition('* => open', [animate('0.5s')]),
-    //   transition('open <=> closed', [animate('0.5s')]),
-    // ]),
-    trigger('zoom', [
-      transition(':enter', [
-        animate(
-          '1.5s',
-          style({
-            backgroundColor: 'red',
-          })
-        ),
-      ]),
-      transition(':leave', [
-        animate(
-          '0.5s',
-          style({
-            backgroundColor: 'yellow',
-          })
-        ),
-      ]),
-    ]),
-  ],
+  animations: [],
 })
 export class TodoItemComponent {
   removeIcon = faTrash;
@@ -59,6 +26,8 @@ export class TodoItemComponent {
   @Input() name = '';
   @Input() status = '';
   @Input() detail = '';
+
+  ngDoCheck() {}
 
   handleEdit() {
     this.todo

@@ -1,17 +1,17 @@
-:host {
+.modal-list {
   width: 450px;
   border-radius: 16px;
   background-color: #fff;
   padding: 18px 16px;
-  height: 80%;
+  height: 75vh;
   display: flex;
   flex-direction: column;
 }
 .list-todo {
   padding: 0 6px;
-  height: 380px;
-  overflow: auto;
-  div {
+  height: 410px;
+  overflow: hidden;
+  div:first-child {
     display: flex;
     justify-content: space-between;
     font-size: 16px;

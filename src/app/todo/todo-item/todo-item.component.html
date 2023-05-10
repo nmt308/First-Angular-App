@@ -1,15 +1,13 @@
-<div @zoom class="todo-item">
-  <a [routerLink]="['/detail', id]" *ngIf="!onEdit">{{ name }}</a>
-  <div *ngIf="onEdit">
-    <input [(ngModel)]="name" class="todo-edit" />
-    <fa-icon [icon]="checkIcon" (click)="handleEdit()"></fa-icon>
+<a [routerLink]="['/detail', id]" *ngIf="!onEdit">{{ name }}</a>
+<div *ngIf="onEdit" id="test">
+  <input [(ngModel)]="name" class="todo-edit" />
+  <fa-icon [icon]="checkIcon" (click)="handleEdit()"></fa-icon>
+</div>
+<div class="d-flex ms-auto">
+  <div (click)="handleRemove()" title="Delete task">
+    <fa-icon [icon]="removeIcon"></fa-icon>
   </div>
-  <div class="d-flex ms-auto" @zoom>
-    <div (click)="handleRemove()" title="Delete task">
-      <fa-icon [icon]="removeIcon"></fa-icon>
-    </div>
-    <div style="margin-left: 18px">
-      <fa-icon [icon]="editIcon" (click)="onEdit = !onEdit"></fa-icon>
-    </div>
+  <div style="margin-left: 18px">
+    <fa-icon [icon]="editIcon" (click)="onEdit = !onEdit"></fa-icon>
   </div>
 </div>

@@ -1,13 +1,12 @@
-:host {
-  margin-left: 42px;
-}
 form {
   width: 450px;
   border-radius: 16px;
   background-color: #fff;
   padding: 18px 16px;
-  height: 80%;
   display: flex;
+  position: fixed;
+  transform: translateX(-120px);
+  top: 20%;
   flex-direction: column;
   p {
     margin-bottom: 12px;

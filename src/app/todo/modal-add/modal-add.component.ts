@@ -1,3 +1,10 @@
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { TodoService } from 'src/app/services/todo.service';
@@ -5,6 +12,28 @@ import { TodoService } from 'src/app/services/todo.service';
   selector: 'app-modal-add',
   templateUrl: './modal-add.component.html',
   styleUrls: ['./modal-add.component.scss'],
+  animations: [
+    trigger('openClose', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate(
+          '1s ease',
+          style({
+            opacity: 1,
+          })
+        ),
+      ]),
+      transition(':leave', [
+        animate(
+          '1s ease',
+          style({
+            opacity: 0,
+            transform: 'translateX(120px)',
+          })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class ModalAddComponent {
   @Input() title = '';

@@ -1,4 +1,9 @@
-<form [formGroup]="form" *ngIf="todo.onAdd" (ngSubmit)="(handleAdd)">
+<form
+  [formGroup]="form"
+  *ngIf="todo.onAdd"
+  (ngSubmit)="(handleAdd)"
+  [@openClose]
+>
   <h3>{{ title }}</h3>
   <div style="margin-bottom: 12px">
     <p>Name task</p>

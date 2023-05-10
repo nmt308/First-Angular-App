@@ -1,5 +1,5 @@
 <!-- ng-container giúp không render ra DOM 1 div thừa -->
-<ng-container *ngIf="toast.isShow">
+<div *ngIf="toast.isShow" @onOff>
   <p>{{ toast.message }}</p>
   <fa-icon [icon]="closeIcon" (click)="toast.toggleShow()"></fa-icon>
-</ng-container>
+</div>

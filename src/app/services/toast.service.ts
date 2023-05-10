@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ToastService {
   isShow = false;
-  message = '';
+  message = 'This is toast service';
   constructor() {}
   setMessage(value: string) {
     this.message = value;

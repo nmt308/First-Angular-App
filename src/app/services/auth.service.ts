@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   isLogin = true;
-  isAdmin = false;
+  isAdmin = true;
   constructor() {}
   getToken() {
     return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9';

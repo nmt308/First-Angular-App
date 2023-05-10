@@ -11,6 +11,9 @@ import { ModalContainerComponent } from './modal-container/modal-container.compo
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { UpperCaseDirective } from '../customDirectives/upper-case.directive';
+import { TransformTextDirective } from '../customDirectives/transform-text.directive';
+import { HideDirective } from '../customDirectives/hide.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     ModalAddComponent,
     ModalContainerComponent,
     TodoDetailComponent,
+    UpperCaseDirective,
+    TransformTextDirective,
+    HideDirective,
   ],
   providers: [provideNgxMask()],
   imports: [
