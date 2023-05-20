@@ -67,15 +67,14 @@ import {
             transform: 'translateX(0)',
             opacity: 1,
           }),
-          stagger(100, [
-            animate(
-              '0.5s ease',
-              style({
-                transform: 'translateX(100%)',
-                opacity: 0,
-              })
-            ),
-          ]),
+
+          animate(
+            '0.5s ease',
+            style({
+              transform: 'translateX(100%)',
+              opacity: 0,
+            })
+          ),
         ]),
       ]),
     ]),

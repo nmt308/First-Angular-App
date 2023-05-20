@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(public router: Router, public route: ActivatedRoute) {}
   navigate() {
     this.router.navigate(['/item'], {
       queryParams: {

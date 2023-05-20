@@ -45,6 +45,5 @@ export const slideInAnimation = trigger('routeAnimations', [
   //     query(':enter', [animate('300ms ease-out', style({ left: '0%' }))]),
   //     query('@*', animateChild()),
   //   ]),
-  // ]
-  // ),
+  // ]),
 ]);

@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToastService {
+  message = '';
   isShow = false;
-  message = 'This is toast service';
-  constructor() {}
+
+  constructor(public authService: AuthService) {}
+
   setMessage(value: string) {
     this.message = value;
   }
+
   toggleShow() {
     this.isShow = !this.isShow;
   }
-  logToast() {
-    alert('This is toast service');
+
+  testCallAuthService() {
+    //Call getUser to testing
+    this.authService.getUser().subscribe((data) => {});
   }
 }

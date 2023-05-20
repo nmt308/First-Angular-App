@@ -8,7 +8,7 @@ import { ToastService } from '../services/toast.service';
 })
 export class AboutComponent {
   toast?: ToastService;
-  constructor() {
-    this.toast = new ToastService();
-  }
+  // constructor() {
+  //   this.toast = new ToastService();
+  // }
 }

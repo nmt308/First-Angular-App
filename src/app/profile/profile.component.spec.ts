@@ -1,32 +1,31 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { ProfileComponent } from './profile.component';
 import { By } from '@angular/platform-browser';
-describe('Profile component', () => {
+
+describe('ProfileComponent', () => {
   let fixture: ComponentFixture<ProfileComponent>;
   let componentInstance: ProfileComponent;
 
-  //beforeEach thực thi logic code trước khi chạy test
   beforeEach(async () => {
-    //Tạo module tạm vì module chính chứa code không cần thiết
     await TestBed.configureTestingModule({
       declarations: [ProfileComponent],
-    }).compileComponents(); //load template
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    //Khởi tạo component
     fixture = TestBed.createComponent(ProfileComponent);
-    //Lấy instance vừa khởi tạo, có thể truy cập phương thức thuộc tính của component
     componentInstance = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be create', () => {
     expect(componentInstance).toBeTruthy();
   });
 
   it('should have form with class .form-profile', () => {
     const formClass = fixture.debugElement.query(By.css('.form-profile'));
+    const formClass2 = fixture.nativeElement.querySelector('.form-profile');
+    const formClass3 = document.querySelector('.form-profile');
     expect(formClass).withContext('Can not find the element').toBeTruthy();
   });
 });

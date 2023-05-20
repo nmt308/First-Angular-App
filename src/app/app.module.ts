@@ -40,7 +40,8 @@ import { HideDirective } from './customDirectives/hide.directive';
     FeatureModule,
   ],
   providers: [
-    { provide: ToastService, useClass: NewToastService },
+    // { provide: ToastService, useClass: NewToastService },
+    ToastService,
     TodoService,
     httpInterceptors,
   ],

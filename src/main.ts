@@ -19,10 +19,12 @@ import {
   switchMap,
   concatMap,
   exhaustMap,
+  forkJoin,
+  delay,
 } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 
-/* CREATOR OPERATOS */
+/* CREATION OPERATOS */
 
 const intervalObservable = interval(1000);
 
@@ -30,14 +32,25 @@ const timerObservable = timer(4000, 1000);
 
 const eventObservable = fromEvent(document, 'click');
 
-const ofObservable = of(1, 2, 3, 4, 5); //push xong thì complete
+const ofObservable = of(1, 2, 3, 4, 5);
 
 const fromObservable = from(
-  [1, 2, 3, 4, 5]
+  // [1, 2, 3, 4, 5]
   // fetch('https://jsonplaceholder.typicode.com/todos/1')
+  'Hello'
 );
 
-const ajaxObservable = ajax.get('https://jsonplaceholder.typicode.com/todos/1');
+const ajaxObservable = ajax.getJSON(
+  'https://jsonplaceholder.typicode.com/todos/1'
+);
+
+const observable1 = of(1).pipe(delay(1000));
+const observable2 = of(2).pipe(delay(4000));
+const forkjoinObservable = forkJoin([observable1, observable2]);
+const forkjoinObservable2 = forkJoin({
+  data1: observable1,
+  data2: observable2,
+});
 
 /*----------------------------------------------------------*/
 
@@ -56,13 +69,13 @@ const ofObservable4 = ofObservable.pipe(
 const intervalObservable2 = interval(1000).pipe(
   take(6),
 
-  tap((value) => {
-    console.log('tap operator: ', value);
-  }),
+  // tap((value) => {
+  //   console.log('tap operator: ', value);
+  // }),
 
-  reduce((accumulate, value) => {
-    return accumulate + value;
-  }, 0),
+  // reduce((accumulate, value) => {
+  //   return accumulate + value;
+  // }, 0),
 
   scan((accumulate, value) => {
     return accumulate + value;
@@ -79,30 +92,27 @@ const eventObservable2 = eventObservable.pipe(
     ajax.getJSON('https://jsonplaceholder.typicode.com/todos/1')
   )
 );
-
-/*----------------------------------------------------------*/
-
 const observer = eventObservable2.subscribe((value) => {
   console.log(value);
 });
-
-// const observable = new Observable((subscriber) => {
-//   subscriber.next('OK');
-//   subscriber.complete();
-//   subscriber.error('error');
-// });
-// const observer2 = observable.subscribe({
-//   next(value) {
-//     console.log(value);
-//   },
-//   complete() {
-//     console.log('success');
-//   },
-//   error(err) {
-//     console.log(err);
-//   },
-// });
-
+/*----------------------------------------------------------*/
+const observable = new Observable((subscriber) => {
+  subscriber.next('OK');
+  subscriber.complete();
+  subscriber.next('OK');
+  subscriber.error('error');
+});
+const observer2 = observable.subscribe({
+  next(value) {
+    console.log(value);
+  },
+  complete() {
+    console.log('success');
+  },
+  error(err) {
+    console.log(err);
+  },
+});
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .catch((err) => console.error(err));
